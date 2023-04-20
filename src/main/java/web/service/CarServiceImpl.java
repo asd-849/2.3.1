@@ -29,12 +29,12 @@ public class CarServiceImpl implements CarService {
         carsList.add(new Car("sadas", "dasjdlas", 12312));
     }
 
-    public List<Car> getCurrentCarsList() {
-        return carsList;
-    }
+//    public List<Car> getCurrentCarsList() {
+//        return carsList;
+//    }
 
     @Override
-    public List<Car> getCarsList(List<Car> carsList, int count) {
+    public List<Car> getCarsList(int count) {
         if (count >= 5) {
             return carsList;
         }
