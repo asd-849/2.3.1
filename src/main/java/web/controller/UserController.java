@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import web.service.UserService;
 import web.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping()
 public class UserController {
@@ -23,7 +26,8 @@ public class UserController {
     @GetMapping()
     public String index(ModelMap model) {
 //        model.addAttribute("user", new User());
-        model.addAttribute("users", userService.getAllUsers());
+        List<User> users = userService.getAllUsers();
+        model.addAttribute("users", users);
         return "index";
     }
 
@@ -62,8 +66,8 @@ public class UserController {
 //    }
 
     @PostMapping("/edit")
-    public String updateUser(@ModelAttribute("user") User user, @RequestParam Long id) {
-        userService.updateUserById(user, id);
+    public String updateUser(@ModelAttribute("user") User user) {
+        userService.updateUserById(user);
         return "redirect:/";
     }
 

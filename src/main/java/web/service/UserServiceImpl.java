@@ -13,8 +13,8 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @PersistenceContext
-    private EntityManager entityManager;
+//    @PersistenceContext
+//    private EntityManager entityManager;
     private UserDAO userDAO;
 
     @Autowired
@@ -41,11 +41,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void updateUserById(User user, Long id) {
-        User userToBeUpdated = entityManager.find(User.class, id);
-        userToBeUpdated.setName(user.getName());
-        userToBeUpdated.setLastName(user.getLastName());
-        userToBeUpdated.setAge(user.getAge());
+    public void updateUserById(User user) {
+//        User userToBeUpdated = entityManager.find(User.class, id);
+//        userToBeUpdated.setName(user.getName());
+//        userToBeUpdated.setLastName(user.getLastName());
+//        userToBeUpdated.setAge(user.getAge());
         userDAO.updateUserById(user);
     }
 

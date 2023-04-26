@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Start page</title>
@@ -8,6 +7,7 @@
 <body>
 <div th:each="user : ${users}">
   <a th:href="@{/user(id=${user.getId()})}" th:text="${user.getName()}">user</a>
+<!--    <p th:text="${user.getName()}">user</p>-->
 </div>
 
 <br/>
