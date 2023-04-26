@@ -23,11 +23,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping()
+    @GetMapping("users")
     public String index(ModelMap model) {
 //        model.addAttribute("user", new User());
-        List<User> users = userService.getAllUsers();
-        model.addAttribute("users", users);
+        model.addAttribute("users", userService.getAllUsers());
         return "index";
     }
 
@@ -50,7 +49,7 @@ public class UserController {
     @PostMapping("/createUser")
     public String createUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @GetMapping("/edit")
@@ -68,7 +67,7 @@ public class UserController {
     @PostMapping("/edit")
     public String updateUser(@ModelAttribute("user") User user) {
         userService.updateUserById(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
 //    @DeleteMapping("/{id}")
@@ -80,6 +79,6 @@ public class UserController {
     @GetMapping("/delete")
     public String deleteUser(@RequestParam Long id) {
         userService.removeUserById(id);
-        return "redirect:/";
+        return "redirect:/users";
     }
 }
