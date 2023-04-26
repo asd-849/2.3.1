@@ -49,7 +49,7 @@ public class AppConfig {
     public LocalContainerEntityManagerFactoryBean EntityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityFactory = new LocalContainerEntityManagerFactoryBean();
         entityFactory.setDataSource(getDataSource());
-        entityFactory.setPackagesToScan("web.model");
+        entityFactory.setPackagesToScan("web");
         entityFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties props = new Properties();
