@@ -2,16 +2,12 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import web.service.UserService;
 import web.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping()
@@ -25,7 +21,6 @@ public class UserController {
 
     @GetMapping("users")
     public String index(ModelMap model) {
-//        model.addAttribute("user", new User());
         model.addAttribute("users", userService.getAllUsers());
         return "index";
     }
@@ -36,10 +31,6 @@ public class UserController {
         return "show";
     }
 
-//    @GetMapping("/new")
-//    public String newUser(@ModelAttribute("user") User user) {
-//        return "new";
-//    }
     @GetMapping("/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
@@ -58,23 +49,11 @@ public class UserController {
         return "edit";
     }
 
-//    @PatchMapping("/{id}")
-//    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
-//        userService.updateUserById(user, id);
-//        return "redirect:/";
-//    }
-
     @PostMapping("/edit")
     public String updateUser(@ModelAttribute("user") User user) {
         userService.updateUserById(user);
         return "redirect:/users";
     }
-
-//    @DeleteMapping("/{id}")
-//    public String deleteUser(@PathVariable("id") Long id) {
-//        userService.removeUserById(id);
-//        return "redirect:/";
-//    }
 
     @GetMapping("/delete")
     public String deleteUser(@RequestParam Long id) {

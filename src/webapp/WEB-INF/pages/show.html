@@ -10,14 +10,6 @@
 <p th:text="'Age: ' + ${user.getAge()}"></p>
 <br/>
 <div>
-<!--    <form th:method="POST" th:action="@{/edit?id={id}(id = ${user.getId()})}">-->
-<!--    <form th:method="POST" th:action="@{/edit(id=${user.getId()})}">-->
-<!--    <input type="submit" value="Edit">-->
-<!--    </form>-->
-<!--&lt;!&ndash;    <form th:method="POST" th:action="@{/delete?id={id}(id = ${user.getId()})}">&ndash;&gt;-->
-<!--    <form th:method="POST" th:action="@{/delete(id=${user.getId()})}">-->
-<!--    <input type="submit" value="Delete">-->
-<!--    </form>-->
     <a th:href="@{/delete(id=${user.getId()})}">Delete</a>
     <a th:href="@{/edit(id=${user.getId()})}">Edit</a>
 </div>
